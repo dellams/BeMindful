@@ -1,0 +1,1 @@
+﻿Add the ability to rate some content to your Windows 8 apps, this is the easiest way to get feedback from your customers. Size of the rating stars can be adjusted or they can be changed to user-defined elements to smoothly fit into your application interface.

@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="PerpetuumSoft.Controls.Demo.Examples.TimePickerExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="using:PerpetuumSoft.Controls" 
+    mc:Ignorable="d" d:DesignHeight="320" d:DesignWidth="470">
+
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid.Resources>
+      <Style TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
+        <Setter Property="Margin" Value="10" />
+      </Style>
+      <Style TargetType="p:TimePicker">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#66FFFFFF" />
+      </Style>
+    </Grid.Resources>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+
+    <StackPanel>
+      <p:TimePicker  x:Name="timePicker"/>
+      <p:TimePicker         
+        Hour="{Binding ElementName=timePicker, Path=Hour, Mode=TwoWay}" 
+        Minute="{Binding ElementName=timePicker, Path=Minute, Mode=TwoWay}"
+        Background="{StaticResource Scheme1Brush}"
+        Foreground="{StaticResource Scheme3Brush}"/>
+      <p:TimePicker         
+        Hour="{Binding ElementName=timePicker, Path=Hour, Mode=TwoWay}" 
+        Minute="{Binding ElementName=timePicker, Path=Minute, Mode=TwoWay}"
+        Background="{StaticResource DarkScheme2Brush}"
+        Foreground="Black"/>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1" Margin="10,0,0,0" Width="210">
+      <StackPanel.Resources>
+        <Style TargetType="Button">
+          <Setter Property="HorizontalAlignment" Value="Stretch" />
+          <Setter Property="FontFamily" Value="Segou UI Light" />
+          <Setter Property="FontSize" Value="16" />
+        </Style>
+        <p:IntegerConverter x:Key="ic" />
+      </StackPanel.Resources>
+
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="Hour:"/>
+          <TextBlock Text="{Binding ElementName=timePicker, Path=Hour, Converter={StaticResource ic}, ConverterParameter=2}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1">
+          <TextBlock Text="Minute:"/>
+          <TextBlock Text="{Binding ElementName=timePicker, Path=Minute, Converter={StaticResource ic}, ConverterParameter=2}"/>
+        </StackPanel>
+      </Grid>
+
+      <Button Click="NowButtonClick">Set now</Button>
+      <Button Click="RandomButtonClick">Set random</Button>
+      <Button Click="AddHourButtonClick">Add hour</Button>
+      <Button Click="AddMinuteButtonClick">Add minute</Button>
+    </StackPanel>
+  </Grid>
+</UserControl>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyApp</title>
+        
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Framework -->
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+    <script type="text/javascript" src="js/globalize.js"></script>
+
+    <script type="text/javascript" src="js/dxtreme.core-12.2.js"></script>
+    <script type="text/javascript" src="js/dxtreme.framework-12.2.js"></script>
+    <script type="text/javascript" src="js/dxtreme.widgets-12.2.js"></script>
+    <script type="text/javascript" src="js/dxtreme.viz-12.2.js"></script>
+
+<!--
+    <script type="text/javascript" src="js/dxtreme.core-12.2.debug.js"></script>
+    <script type="text/javascript" src="js/dxtreme.framework-12.2.debug.js"></script>
+    <script type="text/javascript" src="js/dxtreme.widgets-12.2.debug.js"></script>
+    <script type="text/javascript" src="js/dxtreme.viz-12.2.debug.js"></script>
+-->
+
+	<link rel="stylesheet" type="text/css" href="css/dxtreme.ios.default-12.2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dxtreme.android.holo-dark-12.2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dxtreme.desktop.default-12.2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dxtreme.win8.black-12.2.css" />
+	<!-- link rel="stylesheet" type="text/css" href="css/dxtreme.win8.white-12.2.css" / -->
+	<link rel="stylesheet" type="text/css" href="css/dxtreme.win8.black.small-12.2.css" />
+
+    <link rel="stylesheet" type="text/css" href="app.css" />
+    <script type="text/javascript" src="app.config.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="data/db.js"></script>
+    <!-- Layouts -->
+    <link rel="stylesheet" type="text/css" href="layouts/Navbar/NavbarLayout.css" />
+    <link rel="dx-template" type="text/html" href="layouts/Navbar/NavbarLayout.html"/>    
+
+    <!-- Views -->
+    <script type="text/javascript" src="views/index.js"></script>
+    <link rel="dx-template" type="text/html" href="views/index.dxview"/>
+    <link rel="stylesheet" type="text/css" href="views/index.css"/>
+
+    <link rel="dx-template" type="text/html" href="views/about.html"/>
+
+    <script>
+        $(function() {
+        app.navigate();
+        });
+    </script>
+</head>
+<body>
+    <div id="viewPort"></div>
+</body>
+</html>
+

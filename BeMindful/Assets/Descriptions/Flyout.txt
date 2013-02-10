@@ -1,0 +1,1 @@
+﻿Flyout control will allow you to easily add compelling flyout menus of the target application element. The control is customizable: you can set margins, add user-defined UI element to the popup, precisely position it on the left or right, top or bottom or at any other application area.

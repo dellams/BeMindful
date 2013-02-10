@@ -1,0 +1,10 @@
+﻿<StackPanel>
+  <Calendar Date="{Binding Date}" Mode="Year" FirstDayOfWeek="Sunday" />
+  <Calendar Date="{Binding Date}" Mode="Month" FirstDayOfWeek="Monday" />
+  <Calendar Date="{Binding Date}" Mode="Day" FirstDayOfWeek="Tuesday" />
+  <DatePicker Date="{Binding Date}">
+    <DatePicker.DateFormat>
+      {0:ddd, d MMM yyyy}
+    </DatePicker.DateFormat>
+  </DatePicker>
+</StackPanel>

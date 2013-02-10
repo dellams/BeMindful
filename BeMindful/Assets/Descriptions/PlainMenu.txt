@@ -1,0 +1,1 @@
+﻿Common flat menu control composed in a more convenient way. All nested menus are not thrown apart of main menu, they appear instead of it thus leaving more free space for the application content. Getting back to the previous menu is just a single click.

@@ -1,0 +1,51 @@
+﻿<RadialMenuHost
+  BodyBrush="{Binding BodyBrush}"
+  RingBackgroundBrush="{Binding RingBackgroundBrush}"
+  RingActiveBrush="{Binding RingActiveBrush}"
+  RingHoverBrush="{Binding RingHoverBrush}">
+  <RadialMenuHost.Root>
+    <RadialMenu Image="CenterImage.png">
+      <RadialItem
+        Index="0"
+        Image="Item0.png"
+        Label="Label"
+        Tooltip="Tooltip"
+        ValueText="10"
+        ValueBrush="Red"
+        Command="{Binding Command}"
+        CommandParameter="Parameter"
+        Click="ClickHandler" />
+      <RadialItem Index="1" Label="This is submenu" RingMode="Submenu">
+        <RadialItem.Submenu>
+          <RadialMenu>
+            <RadialItem Index="0" Label="Submenu Item" IsChecked="True" />
+            <RadialItem Index="1" Label="Submenu Item" IsChecked="False" />
+            <RadialItem Index="2" Label="Submenu Item" />
+          </RadialMenu>
+        </RadialItem.Submenu>
+      </RadialItem>
+      <RadialItem Index="2" Label="This is slider" ValueText="{Binding FontSize}" RingMode="Submenu">
+        <RadialItem.Submenu>
+          <RadialSlider Nicks="9,11,13,16,20,26,36,42" Value="{Binding FontSize, Mode=TwoWay}"/>
+        </RadialItem.Submenu>
+      </RadialItem>
+      <RadialItem Index="3" Label="Color item" RingMode="Submenu" ScaleMode="True">
+        <RadialItem.Submenu>
+          <RadialMenu>
+            <RadialItem Index="0">
+              <RadialItem.Submenu>
+                <RadialMenu>
+                  <RadialItem Index="0" Text="Checked Item" Mode="CheckBox" IsChecked="{Binding IsChcked, Mode=TwoWay}" />
+                  <RadialItem Index="1" Text="RadioGroup1 Option1" Mode="RadioButton"  />
+                  <RadialItem Index="2" Text="RadioGroup1 Option2" Mode="RadioButton"  />
+                  <RadialItem Index="3" Text="RadioGroup2 Option1" Mode="RadioButton" GroupName="SecondGroup" />
+                  <RadialItem Index="4" Text="RadioGroup2 Option2" Mode="RadioButton" GroupName="SecondGroup" />
+                </RadialMenu>
+              </RadialItem.Submenu>
+            </RadialItem>
+          </RadialMenu>
+        </RadialItem.Submenu>
+      </RadialItem>
+    </RadialMenu>
+  </RadialMenuHost.Root>
+</RadialMenuHost>

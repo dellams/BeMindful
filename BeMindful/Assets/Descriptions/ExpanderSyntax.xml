@@ -1,0 +1,10 @@
+﻿<Expander IsExpanded="True">
+  <Expander.Header>
+    <TextBlock Text="ExpanderCaption" />
+  </Expander.Header>
+  <Expander.Content>
+    <Border Background="White">
+      <TextBlock Text="Content" />
+    </Border>
+  </Expander.Content>
+</Expander>

@@ -1,0 +1,1 @@
+﻿Numeric box adds the ability to change some numeric values to your application. Users can increase or decrease value with a predefined step within a pre-defined range using special buttons. It’s very useful when users are to input some sensitive data.

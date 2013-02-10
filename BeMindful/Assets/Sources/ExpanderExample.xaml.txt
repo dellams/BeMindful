@@ -1,0 +1,181 @@
+﻿<UserControl
+    x:Class="PerpetuumSoft.Controls.Demo.ExpanderExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="using:PerpetuumSoft.Controls" 
+    mc:Ignorable="d" d:DesignHeight="420" d:DesignWidth="320">
+
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel>
+      <Button Click="ToggleButtonClick">
+        <TextBlock Text="Toggle All" Style="{StaticResource BasicTextStyle}"/>
+      </Button>
+
+      <p:Expander x:Name="Expander1" HorizontalAlignment="Left" IsExpanded="True">
+        <p:Expander.Header>
+          <TextBlock Text="Default" Style="{StaticResource BasicTextStyle}" FontSize="26.667"/>
+        </p:Expander.Header>
+        <p:Expander.Content>
+          <Border Background="{StaticResource Scheme1Brush}">
+            <StackPanel>
+              <TextBlock Text="&#x2648; &#x2649; &#x264A; &#x264B; &#x264C; &#x264D;" FontSize="42" Foreground="White" Margin="5"/>
+              <TextBlock Text="&#x264E; &#x264F; &#x2650; &#x2651; &#x2652; &#x2653;" FontSize="42" Foreground="White" Margin="5"/>
+            </StackPanel>
+          </Border>
+        </p:Expander.Content>
+      </p:Expander>
+
+      <p:Expander x:Name="Expander2" HorizontalAlignment="Left" IsExpanded="True">
+        <p:Expander.Header>
+          <TextBlock Text="Custom" Style="{StaticResource BasicTextStyle}" FontSize="26.667" />
+        </p:Expander.Header>
+        <p:Expander.Content>
+          <Border>
+            <TextBlock Text="&#x263A; &#x263A; &#x263A;" FontSize="80" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="{StaticResource SymbolThemeFontFamily}" Foreground="{StaticResource DarkScheme2Brush}"/>
+          </Border>
+        </p:Expander.Content>
+        <p:Expander.Template>
+          <ControlTemplate TargetType="p:Expander">
+            <Grid Background="Transparent">
+              <Grid.Resources>
+                <DataTemplate x:Name="ButtonCollapsedTemplate">
+                  <Viewbox Width="100" Height="100">
+                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}" Text="&#x2639;" Foreground="{StaticResource DarkScheme2Brush}" />
+                  </Viewbox>
+                </DataTemplate>
+                <DataTemplate x:Name="ButtonExpandedTemplate">
+                  <Viewbox Width="100" Height="100">
+                    <TextBlock FontFamily="{StaticResource SymbolThemeFontFamily}" Text="&#x263A;" Foreground="{StaticResource DarkScheme2Brush}" />
+                  </Viewbox>
+                </DataTemplate>
+                <Style TargetType="Rectangle" x:Name="FocusVisualWhiteRectangleThemeStyle">
+                  <Setter Property="IsHitTestVisible" Value="False" />
+                  <Setter Property="Stroke" Value="{StaticResource FocusVisualWhiteStrokeThemeBrush}" />
+                  <Setter Property="StrokeEndLineCap" Value="Square" />
+                  <Setter Property="StrokeDashArray" Value="1,1" />
+                  <Setter Property="Opacity" Value="0" />
+                  <Setter Property="StrokeDashOffset" Value="1.5" />
+                  <Setter Property="Margin" Value="-2" />
+                </Style>
+                <Style TargetType="Rectangle" x:Name="FocusVisualBlackRectangleThemeStyle">
+                  <Setter Property="StrokeDashArray" Value="1" />
+                  <Setter Property="IsHitTestVisible" Value="False" />
+                  <Setter Property="Stroke" Value="{StaticResource FocusVisualBlackStrokeThemeBrush}" />
+                  <Setter Property="StrokeEndLineCap" Value="Square" />
+                  <Setter Property="StrokeDashArray" Value="1,1" />
+                  <Setter Property="Opacity" Value="0" />
+                  <Setter Property="StrokeDashOffset" Value="0.5" />
+                  <Setter Property="Margin" Value="-2" />
+                </Style>
+              </Grid.Resources>
+              <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0"/>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="Normal"/>
+                  <VisualState x:Name="Disabled">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="(UIElement.Opacity)" To="1"/>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="ExpansionStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0"/>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="Collapsed">
+                    <Storyboard>
+                      <DoubleAnimation 
+                      Storyboard.TargetName="ExpandSite" 
+                      Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"                                            
+                      To="0" 
+                      Duration="0:0:0.25"                       
+                      />
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ExpandSite" Storyboard.TargetProperty="Visibility" BeginTime="0:0:0.25">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="Expanded">
+                    <Storyboard>
+                      <DoubleAnimation 
+                      Storyboard.TargetName="ExpandSite" 
+                      Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"                                            
+                      To="1" 
+                      Duration="0:0:0.25"                       
+                      />
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ExpandSite" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Button" Storyboard.TargetProperty="ContentTemplate">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonExpandedTemplate}"/>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStates">
+                  <VisualState x:Name="Focused">
+                    <Storyboard>
+                      <DoubleAnimation Storyboard.TargetName="FocusVisualWhite" Storyboard.TargetProperty="Opacity" To="1" Duration="0"/>
+                      <DoubleAnimation Storyboard.TargetName="FocusVisualBlack" Storyboard.TargetProperty="Opacity" To="1" Duration="0"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="Unfocused" />
+                </VisualStateGroup>
+              </VisualStateManager.VisualStateGroups>
+              <Border x:Name="Background" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                <Grid>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+                  <Border Padding="{TemplateBinding Padding}" x:Name="ExpanderBlock">
+                    <Grid Background="Transparent">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                      </Grid.ColumnDefinitions>
+
+                      <ContentPresenter ContentTemplate="{StaticResource ButtonCollapsedTemplate}" x:Name="Button" />
+                      <Rectangle x:Name="FocusVisualWhite" Style="{StaticResource FocusVisualWhiteRectangleThemeStyle}" StrokeDashArray="1,1" Margin="1" />
+                      <Rectangle x:Name="FocusVisualBlack" Style="{StaticResource FocusVisualBlackRectangleThemeStyle}" StrokeDashArray="1,1" Margin="1"/>
+
+                      <ContentPresenter Content="{TemplateBinding Header}" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4,0,0,0" VerticalAlignment="Center"/>
+                    </Grid>
+                  </Border>
+                  <Border
+                    x:Name="ExpandSite"
+                    Grid.Row="1"
+                    Visibility="Collapsed">
+                    <Border.RenderTransform>
+                      <ScaleTransform ScaleY="0" />
+                    </Border.RenderTransform>
+                    <ContentControl                                     
+                      Content="{TemplateBinding Content}" 
+                      ContentTemplate="{TemplateBinding ContentTemplate}" 
+                      FontFamily="{TemplateBinding FontFamily}" 
+                      FontSize="{TemplateBinding FontSize}" 
+                      FontStretch="{TemplateBinding FontStretch}" 
+                      FontStyle="{TemplateBinding FontStyle}" 
+                      FontWeight="{TemplateBinding FontWeight}" 
+                      Foreground="{TemplateBinding Foreground}" 
+                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                      VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                      Margin="{TemplateBinding Padding}">
+                    </ContentControl>
+                  </Border>
+                </Grid>
+              </Border>
+              <Border x:Name="DisabledVisualElement" IsHitTestVisible="false" Opacity="0" Background="#A5FFFFFF" CornerRadius="3" Grid.RowSpan="2" />
+            </Grid>
+          </ControlTemplate>
+        </p:Expander.Template>
+      </p:Expander>
+
+    </StackPanel>
+  </Grid>
+</UserControl>

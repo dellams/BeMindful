@@ -1,0 +1,8 @@
+﻿<MaskedTextBox Text="Text" ShowDeleteButton="False">
+  <MaskedTextBox.Items>
+    <TextBoxButton Text="&#xE1A3;" MaskedTextBox.IsHighlight="False" MaskedTextBox.Placement="Left" />
+    <TextBoxButton Text="&#xE19F;" MaskedTextBox.IsHighlight="False" MaskedTextBox.Placement="Right" />
+    <TextBoxButton Text="&#xE1CF;" MaskedTextBox.IsHighlight="True" MaskedTextBox.Placement="Left" />
+    <TextBoxButton Text="&#xE16B;" MaskedTextBox.IsHighlight="True" MaskedTextBox.Placement="Right" />
+  </MaskedTextBox.Items>
+</MaskedTextBox>

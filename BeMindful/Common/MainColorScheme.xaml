@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Color x:Key="DarkScheme1Color">#3491D3</Color>
+  <Color x:Key="Scheme1Color">#3BA6F4</Color>
+  <Color x:Key="LightScheme1Color">#7CC9FF</Color>
+  <Color x:Key="ExtraLightScheme1Color">#BFE1FC</Color>
+  <Color x:Key="Scheme2Color">Yellow</Color>
+  <Color x:Key="DarkScheme2Color">#FFA500</Color>
+  <Color x:Key="LightScheme2Color">#FFF373</Color>
+  <Color x:Key="Scheme3Color">#FFFFFF</Color>
+  <Color x:Key="DarkScheme3Color">#CCCCCC</Color>
+  <Color x:Key="ExtraDarkScheme3Color">#999999</Color>
+
+  <SolidColorBrush x:Key="DarkScheme1Brush" Color="{StaticResource DarkScheme1Color}" />
+  <SolidColorBrush x:Key="Scheme1Brush" Color="{StaticResource Scheme1Color}" />
+  <SolidColorBrush x:Key="LightScheme1Brush" Color="{StaticResource LightScheme1Color}" />
+  <SolidColorBrush x:Key="ExtraLightScheme1Brush" Color="{StaticResource ExtraLightScheme1Color}" />
+  <SolidColorBrush x:Key="Scheme2Brush" Color="{StaticResource Scheme2Color}" />
+  <SolidColorBrush x:Key="DarkScheme2Brush" Color="{StaticResource DarkScheme2Color}" />
+  <SolidColorBrush x:Key="LightScheme2Brush" Color="{StaticResource LightScheme2Color}" />
+  <SolidColorBrush x:Key="Scheme3Brush" Color="{StaticResource Scheme3Color}" />
+  <SolidColorBrush x:Key="DarkScheme3Brush" Color="{StaticResource DarkScheme3Color}" />
+  <SolidColorBrush x:Key="ExtraDarkScheme3Brush" Color="{StaticResource ExtraDarkScheme3Color}" />
+
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Default">
+      <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="{StaticResource Scheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemPointerOverBackgroundThemeBrush" Color="{StaticResource LightScheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource ExtraLightScheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="{StaticResource ExtraLightScheme1Color}"></SolidColorBrush>
+
+      <SolidColorBrush x:Key="SliderTrackDecreaseBackgroundThemeBrush" Color="{StaticResource Scheme1Color}" />
+      <SolidColorBrush x:Key="SliderTrackDecreasePointerOverBackgroundThemeBrush" Color="{StaticResource LightScheme1Color}" />
+      <SolidColorBrush x:Key="SliderTrackDecreasePressedBackgroundThemeBrush" Color="{StaticResource ExtraLightScheme1Color}" />
+    </ResourceDictionary>
+    
+    <ResourceDictionary x:Key="Light">
+      <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="{StaticResource Scheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemPointerOverBackgroundThemeBrush" Color="{StaticResource LightScheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource ExtraLightScheme1Color}"></SolidColorBrush>
+      <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="{StaticResource ExtraLightScheme1Color}"></SolidColorBrush>
+
+      <SolidColorBrush x:Key="SliderTrackDecreaseBackgroundThemeBrush" Color="{StaticResource Scheme1Color}" />
+      <SolidColorBrush x:Key="SliderTrackDecreasePointerOverBackgroundThemeBrush" Color="{StaticResource LightScheme1Color}" />
+      <SolidColorBrush x:Key="SliderTrackDecreasePressedBackgroundThemeBrush" Color="{StaticResource ExtraLightScheme1Color}" />
+    </ResourceDictionary>
+  </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

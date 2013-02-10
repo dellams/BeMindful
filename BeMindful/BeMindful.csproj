@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FF80BAC-4E4E-4936-940D-FED89A4DEB79}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeMindful2</RootNamespace>
+    <AssemblyName>BeMindful2</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>BeMindful_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="DataModel\DataSource.cs" />
+    <Compile Include="DataModel\PeopleDataSource.cs" />
+    <Compile Include="DataModel\PlacesDataSource.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageViewModel.cs" />
+    <Compile Include="Common\NavigationTypeProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RatingDisplay.xaml.cs">
+      <DependentUpon>RatingDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemDetailViewModel.cs" />
+    <Compile Include="ViewModels\OverviewPageViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
+    <Compile Include="Views\ContentContainersModule.xaml.cs">
+      <DependentUpon>ContentContainersModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupDetailPage.xaml.cs">
+      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupedItemsPage.xaml.cs">
+      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupedItemsZoomPage.xaml.cs">
+      <DependentUpon>GroupedItemsZoomPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HorizontalTabbedViewxaml.xaml.cs">
+      <DependentUpon>HorizontalTabbedViewxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HubPage.xaml.cs">
+      <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemDetailPage2.xaml.cs">
+      <DependentUpon>ItemDetailPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemDetailPage3.xaml.cs">
+      <DependentUpon>ItemDetailPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPageViewModel.cs" />
+    <Compile Include="Views\ItemDetail4.xaml.cs">
+      <DependentUpon>ItemDetail4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RatingExample.xaml.cs">
+      <DependentUpon>RatingExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplitPage.xaml.cs">
+      <DependentUpon>SplitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerticalTabbedView.xaml.cs">
+      <DependentUpon>VerticalTabbedView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\MediumGray.png" />
+    <Content Include="Assets\Rating.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Lib\DevExpress\DevExpress.Core.v12.2.dll" />
+    <Content Include="Lib\DevExpress\DevExpress.UI.Xaml.Layout.v12.2.dll" />
+    <Content Include="Lib\PerpetuumSoft.Controls.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStylesFromGridSampleApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\StandardStylesFromSplitSampleApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Map.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\RatingDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContentContainersModule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GroupDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GroupedItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GroupedItemsZoomPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HorizontalTabbedViewxaml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HubPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemDetailPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemDetailPage3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemDetail4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RatingExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SplitPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VerticalTabbedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="DevExpress.Core, Version=12.2">
+      <Name>DevExpress.Core</Name>
+    </SDKReference>
+    <SDKReference Include="DevExpress.Controls, Version=12.2">
+      <Name>DevExpress.Controls</Name>
+    </SDKReference>
+    <SDKReference Include="DevExpress.Visualization, Version=12.2">
+      <Name>DevExpress.Visualization</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NextGenSoftware.BeMindful.Models.Interface\NextGenSoftware.BeMindful.Model.Core.csproj">
+      <Project>{7e68159f-72e1-4253-9b51-826b59cc3bd0}</Project>
+      <Name>NextGenSoftware.BeMindful.Model.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NextGenSoftware.BeMindful.Models\NextGenSoftware.BeMindful.Models.Mock.csproj">
+      <Project>{599cc4ed-0216-4cbf-bda1-8dc0c8c18329}</Project>
+      <Name>NextGenSoftware.BeMindful.Models.Mock</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PerpetuumSoft.Controls, Version=1.0.0.1, Culture=neutral, PublicKeyToken=869747bf8b7eefb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\PerpetuumSoft.Controls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

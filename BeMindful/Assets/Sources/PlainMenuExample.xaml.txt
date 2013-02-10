@@ -1,0 +1,149 @@
+﻿<UserControl
+    x:Class="PerpetuumSoft.Controls.Demo.PlainMenuExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:PerpetuumSoft.Controls.Demo" 
+    xmlns:p="using:PerpetuumSoft.Controls"     
+    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="720">
+
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" x:Name="LayoutRoot" d:DataContext="{d:DesignInstance local:MenuModel}">
+    <Grid.Resources>
+      <p:EqualToBoolConverter x:Key="eqbc" />
+      <p:BooleanToVisibilityConverter x:Key="bvc" />
+    </Grid.Resources>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel HorizontalAlignment="Left">
+        <Button Click="ToggleClick" HorizontalAlignment="Center">Toggle Menu</Button>
+        <p:PlainMenuHost x:Name="PlainMenu">
+          <p:PlainMenuHost.Root>
+            <p:PlainMenu>
+              <p:PlainItem Label="Font Style" Image="/Assets/Plain/text-style.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Font Style">
+                    <p:PlainItem Label="Bold" Image="/Assets/Plain/bold.png" Mode="CheckBox" IsChecked="{Binding IsBold, Mode=TwoWay}" />
+                    <p:PlainItem Label="Italic" Image="/Assets/Plain/italic.png" Mode="CheckBox" IsChecked="{Binding IsItalic, Mode=TwoWay}" />
+                    <p:PlainItem Label="Underline" Image="/Assets/Plain/underline.png" Mode="CheckBox" IsChecked="{Binding IsUnderline, Mode=TwoWay}" />
+                    <p:PlainItem Label="Strike" Image="/Assets/Plain/strike.png" Mode="CheckBox" IsChecked="{Binding IsStrike, Mode=TwoWay}" />
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Superscript" Command="{Binding SupscriptCommand}" IsChecked="{Binding IsSupscript}"/>
+                    <p:PlainItem Label="Subscript" Command="{Binding SubscriptCommand}" IsChecked="{Binding IsSubscript}"/>
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Reset format" Image="/Assets/Plain/eraser.png" Command="{Binding ClearFormatCommand}"/>
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItem Label="Font Brush" Image="/Assets/Plain/brush.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Font Brush">
+                    <p:PlainItem Background="#EB5701" Click="BrushClick" />
+                    <p:PlainItem Background="#C00000" Click="BrushClick" />
+                    <p:PlainItem Background="#008000" Click="BrushClick" />
+                    <p:PlainItem Background="#3BA6F4" Click="BrushClick"/>
+                    <p:PlainItem Background="#000000" Click="BrushClick" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItem Label="Font Size" Image="/Assets/Plain/text.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Font Size">
+                    <p:PlainMenu.Resources>
+                      <Style TargetType="p:PlainItem">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                      </Style>
+                    </p:PlainMenu.Resources>
+                    <p:PlainItem Label="9"  FontSize="9"  Height="30" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=9}"/>
+                    <p:PlainItem Label="11" FontSize="11" Height="35" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=11}"/>
+                    <p:PlainItem Label="13" FontSize="13" Height="40" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=13}"/>
+                    <p:PlainItem Label="16" FontSize="16" Height="45" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=16}"/>
+                    <p:PlainItem Label="20" FontSize="20" Height="50" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=20}"/>
+                    <p:PlainItem Label="26" FontSize="26" Height="55" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=26}"/>
+                    <p:PlainItem Label="36" FontSize="36" Height="60" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=36}"/>
+                    <p:PlainItem Label="42" FontSize="42" Height="65" Click="FontSizeClick" IsChecked="{Binding FontSize, Converter={StaticResource eqbc}, ConverterParameter=42}"/>
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItemSeparator />
+              <p:PlainItem Label="Align" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Align">
+                    <p:PlainItem Label="Left" Image="/Assets/Plain/left.png" Command="{Binding AlignLeftCommand}" IsChecked="{Binding IsLeft}" />
+                    <p:PlainItem Label="Center" Image="/Assets/Plain/center.png" Command="{Binding AlignCenterCommand}" IsChecked="{Binding IsCenter}" />
+                    <p:PlainItem Label="Right" Image="/Assets/Plain/right.png" Command="{Binding AlignRightCommand}" IsChecked="{Binding IsRight}" />
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Indent Less" Command="{Binding IndentLessCommand}" />
+                    <p:PlainItem Label="Indent More" Command="{Binding IndentMoreCommand}" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItem Label="List" Image="/Assets/Plain/list.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="List">
+                    <p:PlainItem Label="Marker 1" Image="/Assets/Plain/bullet1.png" Command="{Binding BulletAddCommand}" CommandParameter="bullet1" IsChecked="{Binding IsBullet1}"/>
+                    <p:PlainItem Label="Marker 2" Image="/Assets/Plain/bullet2.png" Command="{Binding BulletAddCommand}" CommandParameter="bullet2" IsChecked="{Binding IsBullet2}"/>
+                    <p:PlainItem Label="Marker 3" Image="/Assets/Plain/bullet3.png" Command="{Binding BulletAddCommand}" CommandParameter="bullet3" IsChecked="{Binding IsBullet3}"/>
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Numeric 1" Image="/Assets/Plain/number1.png" Command="{Binding BulletAddCommand}" CommandParameter="number1" IsChecked="{Binding IsNumber1}"/>
+                    <p:PlainItem Label="Numeric 2" Image="/Assets/Plain/number2.png" Command="{Binding BulletAddCommand}" CommandParameter="number2" IsChecked="{Binding IsNumber2}"/>
+                    <p:PlainItem Label="Numeric 3" Image="/Assets/Plain/number3.png" Command="{Binding BulletAddCommand}" CommandParameter="number3" IsChecked="{Binding IsNumber3}"/>
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Clear" Image="/Assets/Plain/eraser.png" Command="{Binding BulletRemoveCommand}" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItem Label="Tag" Image="/Assets/Plain/tag.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Tag">
+                    <p:PlainItem Label="Question" Image="/Assets/Plain/question.png" Command="{Binding TagAddCommand}" CommandParameter="question" IsChecked="{Binding IsTagQuestion}" />
+                    <p:PlainItem Label="Important" Image="/Assets/Plain/important.png" Command="{Binding TagAddCommand}" CommandParameter="important" IsChecked="{Binding IsTagImportant}" />
+                    <p:PlainItem Label="ToDo" Image="/Assets/Plain/todo.png" Command="{Binding TagAddCommand}" CommandParameter="todo" IsChecked="{Binding IsTagTodo}" />
+                    <p:PlainItemSeparator />
+                    <p:PlainItem Label="Clear" Image="/Assets/Plain/eraser.png" Command="{Binding TagRemoveCommand}" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItemSeparator />
+              <p:PlainItem Label="Copy" Image="/Assets/Plain/copy.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Copy">
+                    <p:PlainItem Label="Copy" Image="/Assets/Plain/copy.png" Command="{Binding CopyCommand}" />
+                    <p:PlainItem Label="Cut" Image="/Assets/Plain/cut.png" Command="{Binding CopyCommand}" />
+                    <p:PlainItem Label="Paste" Image="/Assets/Plain/paste.png" Command="{Binding PasteCommand}" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+              <p:PlainItem Label="Undo/Redo" Image="/Assets/Plain/undo-redo.png" Mode="Submenu">
+                <p:PlainItem.Submenu>
+                  <p:PlainMenu Caption="Undo/Redo">
+                    <p:PlainItem Label="Undo" Image="/Assets/Plain/undo.png" Command="{Binding UndoCommand}" />
+                    <p:PlainItem Label="Redo" Image="/Assets/Plain/redo.png" Command="{Binding RedoCommand}" />
+                  </p:PlainMenu>
+                </p:PlainItem.Submenu>
+              </p:PlainItem>
+            </p:PlainMenu>
+          </p:PlainMenuHost.Root>
+        </p:PlainMenuHost>
+      </StackPanel>
+      <StackPanel Margin="10,0,0,0" Width="400">
+        <TextBlock HorizontalAlignment="Center" Style="{StaticResource SubheaderTextStyle}" Margin="0,0,0,10" Text="Model" />
+        <Border HorizontalAlignment="Stretch" 
+                Background="{StaticResource ComboBoxBackgroundThemeBrush}" 
+                BorderBrush="{StaticResource ComboBoxBorderThemeBrush}"
+                BorderThickness="{StaticResource ComboBoxBorderThemeThickness}"
+                Height="122">
+          <Grid HorizontalAlignment="{Binding HorizontalAlignment}" VerticalAlignment="{Binding VerticalAlignment}">
+            <StackPanel Orientation="Horizontal" >
+              <Border Width="{Binding Indent}"/>
+              <Image Source="{Binding BulletImage}" VerticalAlignment="Center" Margin="5,0,5,0" Width="20" Height="20"  />
+              <TextBlock FontSize="{Binding FontSize}" Foreground="{Binding FontBrush}" FontWeight="{Binding FontWeight}" FontStyle="{Binding FontStyle}" FontFamily="Segoe UI">PERPETUUM</TextBlock>
+              <Image Source="{Binding TagImage}" VerticalAlignment="Center" Margin="5,0,5,0" Width="20" Height="20" />
+            </StackPanel>
+            <Border Height="2" Background="{Binding FontBrush}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="{Binding IsUnderline, Converter={StaticResource bvc}}"/>
+            <Border Height="2" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Stretch" Visibility="{Binding IsStrike, Converter={StaticResource bvc}}"/>
+          </Grid>
+        </Border>
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+</UserControl>

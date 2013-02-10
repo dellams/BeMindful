@@ -1,0 +1,1 @@
+﻿This component extends standard Windows 8 text box control with the ability to add any specific items including buttons inside the text box. The control can validate entered characters and allow only letters or only digits or both. It’s possible to add any similar validation.

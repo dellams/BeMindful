@@ -1,0 +1,5 @@
+﻿<NumericUpDown 
+  Minimum="0" 
+  Maximum="100" 
+  Increment="5" 
+  Value="10" />

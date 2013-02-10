@@ -1,0 +1,1 @@
+﻿Add ability to change color of your Windows 8 application elements with Perpetuum Color Picker. You can select required color from a palette or select a more suitable tone in the color editor. Now your users will be able to modify color scheme of the selected app components in a convenient and habitual manner.

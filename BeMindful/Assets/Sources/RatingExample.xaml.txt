@@ -1,0 +1,97 @@
+﻿<UserControl
+    x:Class="PerpetuumSoft.Controls.Demo.RatingExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="using:PerpetuumSoft.Controls" 
+    mc:Ignorable="d" d:DesignHeight="540" d:DesignWidth="680">
+
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid.Resources>
+      <Style TargetType="TextBlock" x:Name="Header" BasedOn="{StaticResource SubheaderTextStyle}">        
+        <Setter Property="Margin" Value="0,0,0,10" />
+      </Style>
+      <Style TargetType="StackPanel">
+        <Setter Property="Margin" Value="10" />
+      </Style>
+    </Grid.Resources>
+
+    <StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <StackPanel>
+          <TextBlock Text="Default" Style="{StaticResource Header}"/>
+          <p:Rating Value="0"/>
+          <p:Rating Value="1"/>
+          <p:Rating Value="2"/>
+          <p:Rating Value="3"/>
+          <p:Rating Value="4"/>
+          <p:Rating Value="5"/>
+        </StackPanel>
+        <StackPanel>
+          <TextBlock Text="Changeable size" Style="{StaticResource Header}"/>
+          <StackPanel Orientation="Horizontal" Margin="0">
+            <Slider Orientation="Vertical" Height="150" Minimum="5" Maximum="150" Value="{Binding ElementName=bigRating, Path=Height, Mode=TwoWay}"/>
+            <p:Rating ItemCount="3" Height="150" Value="2" x:Name="bigRating" VerticalAlignment="Bottom"/>
+          </StackPanel>
+        </StackPanel>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Continuous value" Style="{StaticResource Header}"/>
+        <Slider Minimum="0" Maximum="10" Margin="10,0" SmallChange="0.1" StepFrequency="0.1" HorizontalAlignment="Left"
+                  Value="{Binding ElementName=rating, Path=Value, Mode=TwoWay}" 
+                  Width="485" />
+        <p:Rating ItemCount="10" Value="7.5" x:Name="rating" Height="50"/>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Custom template" Style="{StaticResource Header}"/>
+        <p:Rating ItemCount="10" Height="50" Foreground="{StaticResource Scheme2Brush}" Highlight="{StaticResource DarkScheme2Brush}" Value="{Binding ElementName=rating, Path=Value, Mode=TwoWay}">
+          <p:Rating.ItemTemplate>            
+            <ControlTemplate TargetType="p:RatingItem">
+              <Grid>
+                <VisualStateManager.VisualStateGroups>
+                  <VisualStateGroup x:Name="HighlightStates">
+                    <VisualState x:Name="Highlighted">
+                      <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HighightMask" Storyboard.TargetProperty="Visibility">
+                          <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                      </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unhighlighted" />
+                  </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Viewbox>
+                  <Border Padding="2">
+                    <Grid Background="Transparent">
+                      <Grid.Resources>
+                        <Style TargetType="Ellipse">
+                          <Setter Property="Width" Value="20" />
+                          <Setter Property="Height" Value="20" />
+                        </Style>
+                        <p:RectMaskConverter x:Key="rc" />
+                      </Grid.Resources>
+                      <Ellipse Fill="{Binding Background}" Stroke="Transparent" StrokeThickness="{Binding Rating.BorderThickness}" />
+                      <Ellipse Fill="{Binding Rating.Foreground}" Stroke="Transparent" StrokeThickness="{Binding Rating.BorderThickness}">
+                        <Ellipse.Clip>
+                          <RectangleGeometry Rect="{Binding Value, Converter={StaticResource rc}, ConverterParameter=20}" />
+                        </Ellipse.Clip>
+                      </Ellipse>
+                      <Ellipse Fill="Transparent" Stroke="{Binding Rating.BorderBrush}" StrokeThickness="{Binding Rating.BorderThickness}" StrokeLineJoin="Round"/>
+                      <Ellipse Fill="{Binding Rating.Highlight}" Stroke="{Binding Rating.Highlight}" StrokeThickness="{Binding BorderThickness}" StrokeLineJoin="Round" Visibility="Collapsed" x:Name="HighightMask"/>
+                      <TextBlock Text="{Binding Index}" Foreground="{StaticResource ExtraDarkScheme3Brush}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" FontWeight="ExtraBold"/>
+                    </Grid>
+                  </Border>
+                </Viewbox>
+              </Grid>
+            </ControlTemplate>
+          </p:Rating.ItemTemplate>
+        </p:Rating>
+      </StackPanel>
+    </StackPanel>
+
+
+  </Grid>
+</UserControl>

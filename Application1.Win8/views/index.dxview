@@ -1,0 +1,11 @@
+<div data-dx-role="view" data-dx-name="Index" data-dx-title="Application1" data-dx-layout="navbar">
+    <div data-dx-target-placeholder="content">
+        <div class="home">
+            <p style="padding: 5px">Modify this view to describe your application and provide additional information.</p>
+
+            <p style="padding: 5px">To learn more about DXTREME, visit <a href="http://help.devexpress.com/HTML">http://help.devexpress.com/HTML</a>. It is an interactive learning environment where you can find documentation, feature demonstrations, and various tutorials.</p>
+
+            <p style="padding: 5px">If you have any questions about DXTREME, do not hesitate to contact our support team via <a href="http://www.devexpress.com/support/center/">http://www.devexpress.com/support/center/</a>. </p>
+        </div>
+    </div>
+</div>

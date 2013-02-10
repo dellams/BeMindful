@@ -1,0 +1,6 @@
+﻿<StackPanel>
+  <ColorPicker Color="{Binding Color}" Mode="ColorEditor" />
+  <ColorPicker Color="{Binding Color}" Mode="ColorList" />
+  <ColorEditor Color="{Binding Color}" />
+  <ColorList Color="{Binding Color}" StandartColors="{Binding StandartColors}" />
+</StackPanel>

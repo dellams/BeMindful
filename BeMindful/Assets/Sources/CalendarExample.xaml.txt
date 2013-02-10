@@ -1,0 +1,81 @@
+﻿<UserControl
+    x:Class="PerpetuumSoft.Controls.Demo.CalendarExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="using:PerpetuumSoft.Controls" 
+    mc:Ignorable="d" d:DesignHeight="460" d:DesignWidth="800">
+
+  <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid.Resources>
+      <Style TargetType="TextBlock" BasedOn="{StaticResource SubheaderTextStyle}">
+        <Setter Property="Margin" Value="10" />
+      </Style>
+      <p:DateTimeToMonthNameConverter x:Key="mc" />
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Text="Year:"/>
+      <TextBlock Text="{Binding ElementName=calendar, Path=Date.Year}"/>
+      <TextBlock Text="Month:"/>
+      <TextBlock Text="{Binding ElementName=calendar, Path=Date, Converter={StaticResource mc}}"/>
+      <TextBlock Text="Day:"/>
+      <TextBlock Text="{Binding ElementName=calendar, Path=Date.Day}"/>
+    </StackPanel>
+
+    <p:Calendar x:Name="calendar" Grid.Row="1" VerticalAlignment="Top"/>
+
+    <Grid Grid.Column="1" Grid.Row="1" Margin="10,0,0,0" >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="DatePickers"/>      
+      <p:DatePicker Grid.Row="1" Date="{Binding ElementName=calendar, Path=Date, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5"/>
+      <p:DatePicker Grid.Row="2" Date="{Binding ElementName=calendar, Path=Date, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5">
+        <p:DatePicker.DateFormat>
+          {0:M}
+        </p:DatePicker.DateFormat>
+      </p:DatePicker>
+      <p:DatePicker Grid.Row="3" Date="{Binding ElementName=calendar, Path=Date, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5">
+        <p:DatePicker.DateFormat>
+          {0:ddd, d MMM yyyy}
+        </p:DatePicker.DateFormat>
+      </p:DatePicker>
+
+      <StackPanel Grid.Row="4" HorizontalAlignment="Left" Orientation="Horizontal">
+        <StackPanel Width="140">
+          <TextBlock Text="Set mode" Grid.Column="1"/>
+          <Button Click="YearButtonClick" HorizontalAlignment="Stretch" Padding="0,0,0,7">
+            <TextBlock Text="Year" Style="{StaticResource ItemTextStyle}"/>
+          </Button>
+          <Button Click="MonthButtonClick" HorizontalAlignment="Stretch" Padding="0,0,0,7">
+            <TextBlock Text="Month" Style="{StaticResource ItemTextStyle}"/>
+          </Button>
+          <Button Click="DayButtonClick" HorizontalAlignment="Stretch" Padding="0,0,0,7">
+            <TextBlock Text="Day" Style="{StaticResource ItemTextStyle}"/>
+          </Button>
+        </StackPanel>
+        <StackPanel x:Name="DayStackPanel">
+          <TextBlock Text="Common" Grid.Column="1"/>
+          <Button Click="WeekButtonClick" HorizontalAlignment="Stretch"  Padding="0,0,0,7">
+            <TextBlock Text="Fleep first day" Style="{StaticResource ItemTextStyle}"/>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</UserControl>

@@ -1,0 +1,5 @@
+﻿<TimePicker
+  Hour="12"
+  Minute="30"
+  Background="White"
+  Foreground="Black" />

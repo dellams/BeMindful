@@ -1,0 +1,2 @@
+﻿The calendar control is used to select and navigate through dates. You can quickly find necessary date by switching to select year, month or day mode. It’s also possible to immediately navigate to the first day of the month or week.
+The date picker sets date using the drop-down calendar control. Date format can be changed to address your preferences of how the date elements should be arranged (day/month/year).

@@ -1,0 +1,81 @@
+﻿<dx:DXPage
+    x:Class="BeMindful.UserControls.HorizontalTabbedViewxaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dx="using:DevExpress.UI.Xaml.Layout"
+    mc:Ignorable="d"
+    IsTabStop="false">
+
+    <dx:PageAdornerControl>
+        <dx:PageAdornerControl.HeaderTemplate>
+            <DataTemplate>
+                <TextBlock Padding="10" Text="Page View" FontSize="80" FontWeight="Thin" VerticalAlignment="Bottom"/>
+            </DataTemplate>
+        </dx:PageAdornerControl.HeaderTemplate>
+        <dx:PageView x:Name="pageView"
+            Foreground="White"
+            SelectedIndex="2"
+            HorizontalContentAlignment="Center">
+            <dx:PageViewItem Header="Document">
+                    <dx:LayoutControl Margin="40" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                        <RichTextBlock Width="380" IsTextSelectionEnabled="False" Padding="0 0 30 0">
+                            <Paragraph>
+                                <Run FontSize="25" FontWeight="Light" Text="Chapter 1"/>
+                            </Paragraph>
+                            <Paragraph LineStackingStrategy="MaxHeight">
+                                <InlineUIContainer>
+                                    <Border Width="380" Height="380" Margin="0,20,0,10" Background="Gray">
+                                        <TextBlock Foreground="#999999" Text="Illustration" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </InlineUIContainer>
+                            </Paragraph>
+                            <Paragraph>
+                                <Run FontWeight="SemiLight" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante."/>
+                            </Paragraph>
+                        </RichTextBlock>
+                        <RichTextBlock Width="380" IsTextSelectionEnabled="False">
+                            <Paragraph>
+                                <Run FontWeight="SemiLight" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante."/>
+                            </Paragraph>
+                        </RichTextBlock>
+                    </dx:LayoutControl>
+            </dx:PageViewItem>
+
+            <dx:PageViewItem Header="Details">
+                    <dx:LayoutControl Orientation="Vertical" Margin="40">
+                        <TextBlock Text="Group 1"
+							FontSize="25" FontWeight="Light"/>
+                        <Border Background="Gray" Margin="0, 20, 0, 0"
+						    VerticalAlignment="Stretch"
+						    Width="400" Height="400">
+                            <TextBlock Text="Content"
+							    Foreground="#999999"
+							    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </dx:LayoutControl>
+            </dx:PageViewItem>
+
+            <dx:PageViewItem Header="Gallery">
+                    <dx:DXGridView HorizontalAlignment="Center" Margin="40">
+                        <Border Width="300" Height="300" Background="Gray">
+                            <TextBlock Text="Item 1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#999999"/>
+                        </Border>
+                        <Border Width="300" Height="300" Background="Gray">
+                            <TextBlock Text="Item 2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#999999"/>
+                        </Border>
+                        <Border Width="300" Height="300" Background="Gray">
+                            <TextBlock Text="Item 3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#999999"/>
+                        </Border>
+                        <Border Width="300" Height="300" Background="Gray">
+                            <TextBlock Text="Item 4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#999999"/>
+                        </Border>
+                        <Border Width="300" Height="300" Background="Gray">
+                            <TextBlock Text="Item 5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#999999"/>
+                        </Border>
+                    </dx:DXGridView>
+            </dx:PageViewItem>
+        </dx:PageView>
+    </dx:PageAdornerControl>
+</dx:DXPage>

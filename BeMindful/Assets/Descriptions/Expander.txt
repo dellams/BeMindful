@@ -1,0 +1,1 @@
+﻿Expander control provides a way to provide content to the users in an expandable area that resembles a window and includes a header.

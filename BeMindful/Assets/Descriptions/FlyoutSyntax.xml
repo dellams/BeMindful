@@ -1,0 +1,8 @@
+﻿<Flyout
+  Popup="{Binding Popup}"
+  PopupMargin="10"
+  PlacementTarget="{Binding TargetElement}"
+  Placement="Bottom"
+  HorizontalOffset="0"
+  VerticalOffset="0"
+  />
